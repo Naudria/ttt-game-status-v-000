@@ -15,17 +15,16 @@ WIN_COMBINATIONS = [
   [2, 4, 6]  #right diagonal
   ]
 
-def won?(board)
-WIN_COMBINATIONS.each do |win|
-  if win.all?{|i| board[i] == "X"}
-    return win
-  elsif win.all?{|i| board[i] == "O"}
-    return win
-else
- return false
-end
-end
-end
+  def won?(board)
+    board.all? {|i| i != " " || i != ""}
+    winning_array = WIN_COMBINATIONS.detect do |win_array|
+      if win_array.all? {|position| board[position] == "X" } == true
+        winning_array.inspect
+      elsif win_array.all? {|position| board[position] == "O" } == true
+        winning_array.inspect
+      end
+    end
+  end
 
 def full?(board)
 board.all?{|i| i == "X" || i == "O"}
