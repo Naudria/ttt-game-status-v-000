@@ -19,9 +19,9 @@ WIN_COMBINATIONS = [
     board.all? {|i| i != " " || i != ""}
     winning_array = WIN_COMBINATIONS.detect do |win_array|
       if win_array.all? {|position| board[position] == "X" } == true
-        winning_array.to_s
+        print winning_array
       elsif win_array.all? {|position| board[position] == "O" } == true
-        winning_array.to_s
+        print winning_array
       end
     end
   end
